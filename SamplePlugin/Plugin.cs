@@ -68,7 +68,7 @@ namespace SamplePlugin
         }
         public void drawAddress()
         {
-            WindowSystem.GetWindow("Address").IsOpen = true;
+            WindowSystem.GetWindow("New Address").IsOpen = true;
         }
     }
 }

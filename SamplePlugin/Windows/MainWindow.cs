@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Numerics;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
@@ -37,8 +37,14 @@ public class MainWindow : Window, IDisposable
         {
             this.Plugin.DrawConfigUI();
         }
+        if (ImGui.Button("Show Address"))
+        {
+            this.Plugin.drawAddress();
+        }
 
         ImGui.Spacing();
+        var test = "Test";
+        ImGui.InputText("", ref test,255);
 
         ImGui.Text("Have a goat:");
         ImGui.Indent(55);

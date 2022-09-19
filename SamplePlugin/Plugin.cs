@@ -1,4 +1,4 @@
-﻿using Dalamud.Game.Command;
+using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using System.IO;
@@ -11,7 +11,7 @@ namespace SamplePlugin
     public sealed class Plugin : IDalamudPlugin
     {
         public string Name => "Sample Plugin";
-        private const string CommandName = "/pmycommand";
+        private const string CommandName = "/addressbook";
 
         private DalamudPluginInterface PluginInterface { get; init; }
         private CommandManager CommandManager { get; init; }
@@ -34,6 +34,7 @@ namespace SamplePlugin
 
             WindowSystem.AddWindow(new ConfigWindow(this));
             WindowSystem.AddWindow(new MainWindow(this, goatImage));
+            WindowSystem.AddWindow(new AddressUI(this));
 
             this.CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
             {
@@ -64,6 +65,10 @@ namespace SamplePlugin
         public void DrawConfigUI()
         {
             WindowSystem.GetWindow("A Wonderful Configuration Window").IsOpen = true;
+        }
+        public void drawAddress()
+        {
+            WindowSystem.GetWindow("Address").IsOpen = true;
         }
     }
 }
